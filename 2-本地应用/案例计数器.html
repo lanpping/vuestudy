@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <style>
+        .input-num{
+            height: 30px;
+            width: 200px;
+            line-height: 30px;
+            text-align: center;
+            color: black;
+            background-color: white;
+            border: 1px solid rgba(241, 92, 6, 0.8);
+        }
+        button{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            color:white;
+            background-color: #ccc;
+        }
+        .leftbt{
+            float: left;
+        }
+        .rightbt{
+            float: right;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button class="leftbt" @click="sub">-</button>
+            <span v-text="nums"></span>
+            <button class="rightbt" @click="add">+</button>
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                nums:"1"
+            },
+            methods:{
+                sub:function(){
+                    if(this.nums>0){
+                    this.nums-=1}else{
+                        alert("别点了，到底了!")
+                    }
+                },
+                add:function(){
+                    if(this.nums<10){
+                    this.nums+=1}else{
+                        alert("别点了，到头了!")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

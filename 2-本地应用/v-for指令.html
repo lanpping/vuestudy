@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <!-- 作用：根据数据生成列表结构，数组经常和其结合使用 -->
+    <!-- 语法(item,index) in 数据    item和index可以结合其他指令一起使用如v-bind:title -->
+    <!-- 数组长度的更新会同步到页面上，是响应式的 -->
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="增加蔬菜" @click="add">
+        <input type="button" value="减去蔬菜" @click="remove">
+        <ul>
+            <li v-for="(it,index) in arr">
+                {{index}}黑马程序员校区:{{it}}
+            </li>
+        </ul>
+        <h2 v-for="item in veg" :title="item.name">
+            {{item}}
+            {{item.name}}
+        </h2>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                arr:["北京","上海","深圳","广州"],
+                veg:[
+                    {name:"西红柿"},
+                    {name:"土豆"}
+                ]
+            },
+            methods:{
+                add:function(){
+                    this.veg.push({name:"海带"})
+                },
+                remove:function(){
+                    this.veg.shift();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

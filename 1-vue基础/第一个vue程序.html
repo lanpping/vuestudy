@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue基础-第一个vue程序</title>
+   
+</head>
+<body>
+    <!-- 第三步使用简洁的模板语法也就是两个花括号把数据渲染到页面上 -->
+    <!-- 2.html结构 -->
+    <div id="app">
+        {{ message }}
+    </div>
+    <!-- 第一步导入开发版本的vue.js -->
+     <!--1. 开发环境版本，包含了有帮助的命令行警告 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 第二步创建Vue实例对象，设置el属性和data属性 -->
+    <!-- 创建vue实例 -->
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:"Hello Vue!"
+            }
+        })
+    </script>
+    
+</body>
+</html>

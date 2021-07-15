@@ -1,0 +1,22 @@
+通过vue实现常见的网页效果
+学习vue指令，以案例巩固知识点
+vue指令是指以v-开头的一组特殊语法
+
+1、内容绑定，事件绑定
+v-text v-html v-on基础
+2、显示切换，属性绑定
+v-show v-if v-bind
+3、列表循环，表单元素绑定
+v-for v-on补充 v-model
+
+
+v-bind只能实现数据的单向绑定，从M自动绑定到v，无法实现数据的双向绑定
+v-model可以实现表单元素和model中数据的双向数据绑定，只能运用在表单元素中如input select checkbox textare
+v-for循环时，key只能是number和string；key使用时，必须使用v-bind属性绑定的样式去指定key值；
+再组件中，使用v-for循环时，或者在一些特殊情况中，如果v-for有问题，必须在使用v-for同时，指定唯一的字符串/数字类型:key值
+
+列表结构可以通过v-for指令结合数据生成
+v-on结合事件修饰符可以对事件进行限制，比如.enter
+v-on在绑定事件可以自定义参数
+通过v-model可以快速的设置和获取表单元素的值
+基于数据的开发方式

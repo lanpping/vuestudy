@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 导入vue包 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 解决插值表达式{{}}的可能会有闪烁问题 -->
+        <p v-cloak>{{msg}} </p>
+        <!-- 结果和上述一样，当时v-text没有闪烁问题 -->
+        <h4 v-text="msg">----</h4>
+        <!-- 但是，v-text会覆盖元素中本来的内容，但是插值表达式不会，他只换自己的这个占位符 -->
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'123'
+            }
+        })
+    </script>
+</body>
+</html>

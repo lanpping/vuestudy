@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg|msgFormat}} </p>
+    </div>
+
+    <script>
+        // 定义一个vue全局的过滤器，名字叫msgFormat
+        Vue.filter('msgFormat',function(msg){
+            // 字符串的replace第一个参数，可为字符串和正则
+            // 这样只改变第一个单纯
+            // return msg.replace('单纯','邪恶');
+
+            return msg.replace(/单纯/g,'邪恶');
+        })
+
+
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'我单词，单纯，文艺，单纯，傻傻，的单纯'
+            },
+            methods:{}
+        })
+    </script>
+</body>
+</html>

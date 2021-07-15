@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text指令</title>
+    <!-- 这个指令的作用是设置标签的内容 -->
+</head>
+<body>
+    <div id="app">
+        <!-- 使用v-text缺点，如无论h2里面有何内容，数据全部都会被替换掉 -->
+        <!-- 还能写表达式，比如字符串拼接，v-text因为有双引号，所以内部只能用单引号，但是{{}}里面单引号双引号皆可 -->
+        <h2 v-text="message+']'">深圳</h2>
+        <h3 v-text="info+'['">sz</h3>
+        <!-- 若只替换部分（指定）内容用差值表达式，即用{{}} 只有{{}}内部会被替换，其他内容保留下-->
+        <h2>{{message+"["}}深圳</h2>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:"你好！",
+                info:"前端与移动教研所"
+            }
+        })
+    </script>
+</body>
+</html>

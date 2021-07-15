@@ -1,0 +1,12 @@
+Vue结合网络数据开发应用
+axios 功能强大的网络请求库
+
+<!-- 官网提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    
+axios.get(地址?key=value&key2=value2).then(function(response){},function(err){})
+axios.post(地址,{key=value&key2=value2}).then(function(response){},function(err){})
+

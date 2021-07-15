@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show指令</title>
+    <!-- 根据表达式的真假，选择元素的（真时）显示、（假时）隐藏，数据改变，对应元素的显示状态同步更新 -->
+    <!-- 原理是修改元素的display，实现显示隐藏 即实际上操作的是元素的样式-->
+    <!-- v-show指令后面的内容最终都会解析为布尔值 -->
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="changeShow">
+        <input type="button" value="累加年龄" @click="changeAge">
+        <h2 v-show="isShow"> {{message}} 恭喜你，你已经{{age}}岁了！</h2>
+        <h2 v-show="age==18"> 恭喜你成年啦！！！</h2>
+        <h2 v-show="age>20"> 你已经是个成熟的大人啦！！！</h2>
+
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:"你好！",
+                age:16,
+                isShow:false
+            },
+            methods:{
+                changeShow:function(){
+                    this.isShow=!this.isShow
+                },
+                changeAge:function(){
+                    this.age+=1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

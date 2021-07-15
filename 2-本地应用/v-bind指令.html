@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind属性绑定机制</title>
+    <!-- v-bind:属性名=表达式 -->
+    <!-- 设置元素的属性，如src,title,class -->
+    <style>
+        .activity{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="">
+        <br>
+        <!-- 简写为： -->
+        <!-- 注意activity有引号 -->
+        <img :src="imgSrc" alt="" :title="imgTitle+'!!!'" :class="isActivity?'activity':''" @click="toggleActivity">
+        <br>
+        <!-- class另一种写法 用对象方式写： {字符内容：判断值}  推荐，因为需要动态的增删class-->
+        <img :src="imgSrc" alt="" :title="imgTitle+'第二种写法'" :class="{activity:isActivity}" @click="toggleActivity">
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"http://www.itheima.com/images/logo.png",
+                imgTitle:"黑马程序员",
+                isActivity:false
+            },
+            methods:{
+                toggleActivity:function(){
+                    this.isActivity=!this.isActivity
+                }
+            }
+        })
+    </script>
+</body>
+</html>

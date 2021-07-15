@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom3></mycom3>
+        <login></login>
+    </div>
+    
+<!-- 在被控制的#app外面，使用template元素，定义组件的html结构 -->
+    <template id="tmp1">
+        <div>
+            <h1>
+                这是通过template元素，在外部定义的组件结构，这个方式，有代码的只能提示和高亮
+            </h1>
+            <h4>好用，不错！</h4>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('mycom3',{
+            template:'#tmp1'
+        })
+
+
+
+        var vm1=new Vue({
+            el:"#app",
+            data:{
+               
+            },
+            methods:{
+            },
+            filters:{}, //定义私有过滤器
+            directives:{}, //定义私有指令
+            components:{  //定义私有组件
+                login:{
+                    template:'<h1>这是vm1这个实例内部私有的login组件</h1>'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on事件绑定机制</title>
+    <!-- v-on指令作用为元素绑定事件，事件名不需要写on,如直接写click，指令简写为@ -->
+    <!-- 绑定的方法可以定义在methods属性中，方法内部通过this关键字可以访问定义在data中数据 -->
+    <!-- 事件后面跟上.修饰符可以对事件进行限制，如.enter可以限制触发的按键为回车，事件修饰符有很多种 -->
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="v-on指令" v-on:click="doIt">
+        <input type="button" value="v-on指令简写" @click="doIt">
+        <input type="button" value="双击事件" @dbclick="doIt">
+        <input type="text" @keyup.enter="sayHi">
+        <h2 @click="changefood">{{food}}</h2>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                food:"西红柿"
+            },
+            methods:{
+                doIt:function(){
+                    alert("做It")
+                },
+                changefood:function(){
+                    this.food+="很好吃"
+                },
+                sayHi:function(){
+                    alert("吃了吗？")
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>天知道</title>
+    <style>
+        body,div{
+            display: block;
+        }
+        body,h1,h2,h3,h4,h5{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .search_form{
+            position: absolute;
+            left:30%;
+        }
+        h1{
+            position: relative;
+            left: 30%;
+            /* text-align: center; */
+            color: greenyellow;
+            margin-bottom: 30px;
+        }
+        .input_txt{
+            width: 538px;
+            height: 38px;
+            padding: 0px;
+            border: 1px solid blue;
+            text-indent: 10px;        
+        }
+        .input_sub{
+            height: 40px;
+            width: 50px;
+        }
+        .hotkey{
+            position: absolute;
+            margin-top: 10px;
+        }
+        a{
+            padding-right: 10px;
+        }
+        .weather_list{
+            height: 200px;
+            /* text-align: center; */
+            margin-top: 40px;
+        }
+        li{
+            text-align: -webkit-match-parent;
+            display: inline-block;
+            border-right: 1px solid gray;
+            padding: 5px;
+            margin: 5px;
+        }
+        .info_type span{
+            color: coral;
+            font-size: 30px;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="app">
+        <div class="search_form">
+            <h1>天知道</h1>
+            <div class="form_group">
+                <input type="text" v-model="city" @keyup.enter="searchWeather" class="input_txt" placeholder="请输入查询的天气" />
+                <button class="input_sub">搜索</button>
+            </div>
+            <div class="hotkey">
+                <a href="javascript:;"@click="changeCity('北京')">北京</a>
+                <a href="javascript:;"@click="changeCity('上海')">上海</a>
+                <a href="javascript:;"@click="changeCity('广州')">广州</a>
+                <a href="javascript:;"@click="changeCity('深圳')">深圳</a>
+            </div>
+            <ul class="weather_list">
+                <li v-for="item in weatherList">
+                    <div class="info_type"><span class="iconfont">{{item.type}} </span> </div>
+                    <div class="info_temp">
+                        <b>{{item.low}} </b>
+                        ~
+                        <b>{{item.high}} </b>
+                    </div>
+                    <div class="info_date"><span>{{item.date}} </span></div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- 官网提供的axios在线地址 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="weather.js"></script>
+</body>
+</html>

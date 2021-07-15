@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- 1. 导入vue包 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <style>
+         .red{
+             color: red;
+         }
+         .thin{
+             font-weight: 200;
+         }
+         .italic{
+             font-style: italic;
+         }
+         .active{
+             letter-spacing: 0.5em;
+         }
+     </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 之前用到方法 -->
+        <!-- <h1 class="red thin">这是一个很大很多的H1！!!</h1> -->
+
+        <!-- vue通过属性绑定为元素设置class类样式 -->
+
+        <!-- 第一种使用方式，直接传递数组，注意：这里的class需要使用v-bind做数据绑定 -->
+        <h1 :class="['thin','italic']">这是一个很大很多的H1！!!</h1>
+         
+        <!-- 在数组中使用三元表达式 -->
+        <h1 :class="['thin','italic',flag?'active':'']">这是一个很大很多的H1！!!</h1>
+
+        <!-- 在数组中使用对象代替三元表达式，提高代码的可读性 -->
+        <h1 :class="['thin','italic',{'active':flag} ]">这是一个很大很多的H1！!!</h1>
+
+        <!-- 在为class使用v-bind绑定对象的时候，对象的属性是类名，对象的属性可带引号可不带，故此处未带；属性的值是一个标识符 -->
+        <h1 :class="{red:true,thin:true,italic:false,active:false }">这是一个很大很多的H1！!!</h1>
+
+        <!-- 可写成这样 -->
+        <h1 :class="classobj">这是一个很大很多的H1！!!</h1>
+
+         <!-- 对象就是无序键值对的集合 -->
+        <!-- 第二种 将样式对象定义到data中，并直接引用到:style中 -->
+        <h1 :style="styleObj1">这是一个H1</h1>
+
+        <!-- 第三种  在：style中通过数组，引用多个data上的样式对象 -->
+        <h1 :style="[styleObj1,styleObj2]">这是一个H1</h1>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                classobj:{red:true,thin:true,italic:false,active:false },
+                styleObj1:{color:'green','font-weight':200},
+                styleObj2:{'font-style':'italic'}
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</body>
+</html>
